@@ -22,7 +22,7 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
+  var Aunt = global.Aunt = global.Aunt || {};
 
   var Persistence = {
     /**
@@ -106,6 +106,6 @@
     }
   };
 
-  Likhi.Persistence = Persistence;
+  Aunt.Persistence = Persistence;
 
 })(window);
