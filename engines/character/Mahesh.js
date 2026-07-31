@@ -6,24 +6,24 @@
  * Engine presence-awareness acceptance test end-to-end (a 2-character
  * thread can't exercise round-robin turn order past a single cycle).
  *
- * DELIBERATE DESIGN CHOICE: Nova reuses the SAME trait keys as Likhi
+ * DELIBERATE DESIGN CHOICE: Nova reuses the SAME trait keys as Aunt
  * (affection/playfulness/flirty) rather than Maya's distinct schema.
  * This proves the complementary point to maya.js: two different
  * characters can share a trait vocabulary without their trait STATE
  * colliding — Character Engine namespaces stored traits per
- * characterId (see character.js's `Likhi_character:<id>:traits`
- * storage key), so Likhi's and Nova's "affection" values are
+ * characterId (see character.js's `Aunt_character:<id>:traits`
+ * storage key), so Aunt's and Nova's "affection" values are
  * independent even though the field name is identical.
  *
- * Depends on Likhi.Engines.Character (Milestone 3) only.
+ * Depends on Aunt.Engines.Character (Milestone 3) only.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var CharacterEngine = Likhi.Engines && Likhi.Engines.Character;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var CharacterEngine = Aunt.Engines && Aunt.Engines.Character;
   if (!CharacterEngine) {
-    throw new Error('[NovaDefinition] Likhi.Engines.Character must be loaded before nova.js');
+    throw new Error('[NovaDefinition] Aunt.Engines.Character must be loaded before nova.js');
   }
 
   CharacterEngine.register('Mahesh', {
