@@ -66,14 +66,14 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var Store              = Likhi.Store;
-  var MemoryEngine        = Likhi.Engines && Likhi.Engines.Memory;
-  var CharacterEngine     = Likhi.Engines && Likhi.Engines.Character;
-  var PromptEngine        = Likhi.Engines && Likhi.Engines.Prompt;
-  var ConversationEngine  = Likhi.Engines && Likhi.Engines.Conversation;
-  var ChatProviders       = Likhi.Providers && Likhi.Providers.Chat;
-  var MediaProviders      = Likhi.Providers && Likhi.Providers.Media;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var Store              = Aunt.Store;
+  var MemoryEngine        = Aunt.Engines && Aunt.Engines.Memory;
+  var CharacterEngine     = Aunt.Engines && Aunt.Engines.Character;
+  var PromptEngine        = Aunt.Engines && Aunt.Engines.Prompt;
+  var ConversationEngine  = Aunt.Engines && Aunt.Engines.Conversation;
+  var ChatProviders       = Aunt.Providers && Aunt.Providers.Chat;
+  var MediaProviders      = Aunt.Providers && Aunt.Providers.Media;
 
   if (!Store || !MemoryEngine || !CharacterEngine || !PromptEngine || !ConversationEngine || !ChatProviders || !MediaProviders) {
     throw new Error(
@@ -281,6 +281,6 @@ nonSystemMessages.push({
     return { kind: 'message', content: reply };
   }
 
-  Likhi.Engines.Orchestrator = Orchestrator;
+  Aunt.Engines.Orchestrator = Orchestrator;
 
 })(window);
