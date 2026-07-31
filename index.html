@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Likhi</title>
+<title>Aunt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -664,12 +664,12 @@ html.dark #toast { background: #1e293b; }
         <div class="avatar-wrap">
           <img
             src="https://tse2.mm.bing.net/th/id/OIP.fWcGapbaaDFEdyVQyWMEEwHaHa?pid=Api&P=0"
-            alt="Likhi"
-            onerror="this.src='https://ui-avatars.com/api/?name=Likhi&background=f43f5e&color=fff'">
+            alt="Aunt"
+            onerror="this.src='https://ui-avatars.com/api/?name=Aunt&background=f43f5e&color=fff'">
           <span class="online-dot"></span>
         </div>
         <div>
-          <p class="header-name">Likhi</p>
+          <p class="header-name">Aunt</p>
           <p class="header-status">Online</p>
         </div>
       </div>
@@ -708,7 +708,7 @@ html.dark #toast { background: #1e293b; }
       <div id="typing-indicator">
         <img
           src="https://imgcdn.stablediffusionweb.com/2024/10/10/e0767e9f-a289-4fd2-b794-56e7d8e0b675.jpg"
-          alt="Likhi" class="msg-avatar"
+          alt="Aunt" class="msg-avatar"
           onerror="this.src='https://ui-avatars.com/api/?name=L&background=f43f5e&color=fff'">
         <div class="typing-bubble">
           <div class="dot"></div>
@@ -726,7 +726,7 @@ html.dark #toast { background: #1e293b; }
           <textarea
             id="message-input"
             rows="1"
-            placeholder="Message Likhi..."
+            placeholder="Message Aunt..."
             disabled
             aria-label="Message input"></textarea>
           <button id="send-btn" disabled>Send</button>
@@ -787,7 +787,7 @@ html.dark #toast { background: #1e293b; }
 
       <!-- Personality -->
       <div class="settings-section">
-        <h3>Likhi's Personality</h3>
+        <h3>Aunt's Personality</h3>
         <div style="display:flex;flex-direction:column;gap:18px">
           <div>
             <div class="slider-row">
@@ -911,7 +911,7 @@ html.dark #toast { background: #1e293b; }
 
      IMPORTANT: loading scheduler.js only REGISTERS a demo trigger; it
      does NOT start autonomous behavior. Nothing in this file calls
-     Likhi.Engines.Scheduler.start() — no autonomous provider calls
+     Aunt.Engines.Scheduler.start() — no autonomous provider calls
      can happen unless something explicitly calls start() (e.g. from
      the browser console). This is intentional — see scheduler.js's
      header comment for the full safety rationale. -->
@@ -932,10 +932,10 @@ html.dark #toast { background: #1e293b; }
   'use strict';
 
   /* ── Foundation module references (Milestone 1) ── */
-  var Store = window.Likhi && window.Likhi.Store;
+  var Store = window.Aunt && window.Aunt.Store;
   if (!Store) {
     throw new Error(
-      'Likhi.Store failed to load — check that core/event-bus/event-bus.js, ' +
+      'Aunt.Store failed to load — check that core/event-bus/event-bus.js, ' +
       'core/persistence/persistence.js, and core/store/store.js are present ' +
       'and loaded in that order before this script.'
     );
@@ -946,10 +946,10 @@ html.dark #toast { background: #1e293b; }
      the Orchestrator (Milestone 4) owns calling it now. Memory Engine
      is still used directly by the UI layer for rendering/restoring
      messages (see renderMsg/renderImg/init/clearChat below). */
-  var MemoryEngine = window.Likhi && window.Likhi.Engines && window.Likhi.Engines.Memory;
+  var MemoryEngine = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.Memory;
   if (!MemoryEngine) {
     throw new Error(
-      'Likhi.Engines.Memory failed to load — check that ' +
+      'Aunt.Engines.Memory failed to load — check that ' +
       'providers/provider-interface/chat-provider-interface.js, ' +
       'providers/chat/groq-adapter.js, providers/chat/gemini-adapter.js, and ' +
       'engines/memory/memory.js are present and loaded in that order before ' +
@@ -967,17 +967,17 @@ html.dark #toast { background: #1e293b; }
    * not change these strings without also migrating Memory Engine's
    * already-recorded history.
    */
-  const MEMORY_OWNER_ID  = 'likhi';
+  const MEMORY_OWNER_ID  = 'Aunt';
   const MEMORY_THREAD_ID = 'living-room';
 
   /* ── Character / Prompt Engine references (Milestone 3) ──
      Media Provider Engine is no longer referenced directly here —
      the Orchestrator (Milestone 4) owns calling it now. */
-  var CharacterEngine = window.Likhi && window.Likhi.Engines && window.Likhi.Engines.Character;
-  var PromptEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engines.Prompt;
+  var CharacterEngine = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.Character;
+  var PromptEngine    = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.Prompt;
   if (!CharacterEngine || !PromptEngine) {
     throw new Error(
-      'Likhi.Engines.Character / Likhi.Engines.Prompt failed to load — check that ' +
+      'Aunt.Engines.Character / Aunt.Engines.Prompt failed to load — check that ' +
       'engines/character/character.js, engines/world/world.js, and ' +
       'engines/prompt/prompt.js are present and loaded in the correct order ' +
       'before this script.'
@@ -985,13 +985,13 @@ html.dark #toast { background: #1e293b; }
   }
 
   /* ── Intent Engine + Orchestrator references (Milestone 4) ── */
-  var IntentEngine = window.Likhi && window.Likhi.Engines && window.Likhi.Engines.Intent;
-  var Orchestrator = window.Likhi && window.Likhi.Engines && window.Likhi.Engines.Orchestrator;
-  var ResponseParser = window.Likhi && window.Likhi.Engines && window.Likhi.Engines.ResponseParser;
-var WorldEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engines.World;
+  var IntentEngine = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.Intent;
+  var Orchestrator = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.Orchestrator;
+  var ResponseParser = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.ResponseParser;
+var WorldEngine    = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.World;
   if (!IntentEngine || !Orchestrator) {
     throw new Error(
-      'Likhi.Engines.Intent / Likhi.Engines.Orchestrator failed to load — check that ' +
+      'Aunt.Engines.Intent / Aunt.Engines.Orchestrator failed to load — check that ' +
       'engines/conversation/conversation.js, engines/intent/intent.js, and ' +
       'engines/orchestrator/orchestrator.js are present and loaded in that order ' +
       'before this script.'
@@ -1073,7 +1073,7 @@ var WorldEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engine
     if (storedMessages.length > 0) {
       storedMessages.forEach(m => renderMsgDOM(m.role, m.content));
     } else {
-      renderMsgDOM('assistant', "Hey! I'm Likhi from Guntur. Nice to meet you! What are you up to?");
+      renderMsgDOM('assistant', "Hey! I'm Aunt from Guntur. Nice to meet you! What are you up to?");
       // If no name, ask for it
       if (!S.userName) {
         setTimeout(() => {
@@ -1249,7 +1249,7 @@ var WorldEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engine
         </div>`;
     } else {
       row.innerHTML = `
-        <img src="${AI_AVATAR}" alt="Likhi" class="msg-avatar"
+        <img src="${AI_AVATAR}" alt="Aunt" class="msg-avatar"
           onerror="this.src='${FB_AVATAR}'">
         <div class="msg-bubble">
           ${fmtText(content)}
@@ -1264,7 +1264,7 @@ var WorldEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engine
     const row = document.createElement('div');
     row.className = 'msg-row';
     row.innerHTML = `
-      <img src="${AI_AVATAR}" alt="Likhi" class="msg-avatar"
+      <img src="${AI_AVATAR}" alt="Aunt" class="msg-avatar"
         onerror="this.src='${FB_AVATAR}'">
       <div class="msg-img-wrap">
         <img src="${url}" alt="Generated image"
@@ -1283,7 +1283,7 @@ var WorldEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engine
    * this filter aarav/ananya's autonomous chatter would leak into this
    * single-character chat window, which has no UI for them.
    */
-  window.Likhi.EventBus.subscribe('memory:recorded', function (evt) {
+  window.Aunt.EventBus.subscribe('memory:recorded', function (evt) {
     if (evt.ownerId !== MEMORY_OWNER_ID || evt.threadId !== MEMORY_THREAD_ID) return;
     if (evt.meta && evt.meta.imageUrl) {
       renderImgDOM(evt.meta.imageUrl);
@@ -1300,7 +1300,7 @@ var WorldEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engine
     MemoryEngine.clear(MEMORY_OWNER_ID, MEMORY_THREAD_ID);
     Store.setAwaitingName(false);
     EL.messages.innerHTML = '';
-    renderMsgDOM('assistant', "Hey! I'm Likhi from Guntur. So happy you're here! What are you up to? Tell me something about you.");
+    renderMsgDOM('assistant', "Hey! I'm Aunt from Guntur. So happy you're here! What are you up to? Tell me something about you.");
     closeModal();
     showToast('🗑️ Chat cleared');
   }
@@ -1337,10 +1337,10 @@ var WorldEngine    = window.Likhi && window.Likhi.Engines && window.Likhi.Engine
         meta
     );
 
-    Likhi.Engines.Conversation.appendMessage(
+    Aunt.Engines.Conversation.appendMessage(
         MEMORY_THREAD_ID,
         {
-            speaker: speaker || (role === "user" ? "user" : "likhi"),
+            speaker: speaker || (role === "user" ? "user" : "Aunt"),
             role: role,
             content: content,
             timestamp: Date.now()
