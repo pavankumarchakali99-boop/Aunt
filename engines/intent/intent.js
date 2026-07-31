@@ -16,12 +16,12 @@
  * relocates and formalizes that logic, it does not rewrite the
  * detection heuristic itself.
  *
- * No dependencies on any other Likhi.* module.
+ * No dependencies on any other Aunt.* module.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
+  var Aunt = global.Aunt = global.Aunt || {};
 
   // Ordered list of { type, test, buildPayload }. resolve() tries
   // these in registration order; the first matching test wins. If
@@ -64,8 +64,8 @@
     }
   };
 
-  Likhi.Engines = Likhi.Engines || {};
-  Likhi.Engines.Intent = IntentEngine;
+  Aunt.Engines = Aunt.Engines || {};
+  Aunt.Engines.Intent = IntentEngine;
 
   /* ─────────────────────────────────────────────────────────────
    * Register the image-request intent — migrated verbatim from the
