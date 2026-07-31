@@ -23,15 +23,15 @@
  *   3. stability-adapter      (data.artifacts[0].base64)
  *   4. generic-output-adapter (data.output[0])
  *
- * Depends on nothing else in Likhi.* — this file only needs to load
+ * Depends on nothing else in Aunt.* — this file only needs to load
  * before the shape adapters that call `registerShape()` and before
  * the app script that calls `send()`.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  Likhi.Providers = Likhi.Providers || {};
+  var Aunt = global.Aunt = global.Aunt || {};
+  Aunt.Providers = Aunt.Providers || {};
 
   var shapeAdapters = [];
 
@@ -93,6 +93,6 @@
     }
   };
 
-  Likhi.Providers.Media = MediaProviders;
+  Aunt.Providers.Media = MediaProviders;
 
 })(window);
