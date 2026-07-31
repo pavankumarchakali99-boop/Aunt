@@ -8,10 +8,10 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var MediaProviders = Likhi.Providers && Likhi.Providers.Media;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var MediaProviders = Aunt.Providers && Aunt.Providers.Media;
   if (!MediaProviders) {
-    throw new Error('[GenericFieldAdapter] Likhi.Providers.Media must be loaded before generic-field-adapter.js');
+    throw new Error('[GenericFieldAdapter] Aunt.Providers.Media must be loaded before generic-field-adapter.js');
   }
 
   MediaProviders.registerShape({
