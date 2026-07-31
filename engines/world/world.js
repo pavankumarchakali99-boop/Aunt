@@ -372,8 +372,8 @@ setGoal: function (worldId, characterId, goals) {
     WorldEngine.addLocation('default-world', 'default-location', { name: 'Default Location' });
     WorldEngine.setPresence('default-world', 'Aunt', 'default-location');
     WorldEngine.addLocation('default-world', 'cafe', { name: 'The Corner Cafe' });
-    WorldEngine.setPresence('default-world', 'aarav', 'cafe');
-    WorldEngine.setPresence('default-world', 'ananya', 'cafe');
+    WorldEngine.setPresence('default-world', 'aarav', 'Living-room');
+    WorldEngine.setPresence('default-world', 'Mahesh', 'Living-room');
     WorldEngine.setFact('default-world', 'weather', 'sunny');
   } else {
     /* Already seeded in a previous session — just bring it into the
