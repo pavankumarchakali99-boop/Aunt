@@ -9,16 +9,16 @@
  * Registered under the id "openai" to preserve the existing stored
  * provider value exactly (see chat-provider-interface.js).
  *
- * Depends on Likhi.Providers.Chat (the interface/registry) being
+ * Depends on Aunt.Providers.Chat (the interface/registry) being
  * loaded first.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var ChatProviders = Likhi.Providers && Likhi.Providers.Chat;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var ChatProviders = Aunt.Providers && Aunt.Providers.Chat;
   if (!ChatProviders) {
-    throw new Error('[GroqAdapter] Likhi.Providers.Chat must be loaded before groq-adapter.js');
+    throw new Error('[GroqAdapter] Aunt.Providers.Chat must be loaded before groq-adapter.js');
   }
 
   var GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
