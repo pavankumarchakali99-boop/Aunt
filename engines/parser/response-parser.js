@@ -9,7 +9,7 @@
 (function (global) {
     "use strict";
 
-    var Likhi = global.Likhi = global.Likhi || {};
+    var Aunt = global.Aunt = global.Aunt || {};
 
     function parse(response) {
 
@@ -40,9 +40,9 @@
         return result;
     }
 
-    Likhi.Engines = Likhi.Engines || {};
+    Aunt.Engines = Aunt.Engines || {};
 
-    Likhi.Engines.ResponseParser = {
+    Aunt.Engines.ResponseParser = {
         parse: parse
     };
 
