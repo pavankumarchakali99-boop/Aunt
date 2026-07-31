@@ -4,7 +4,7 @@
  * Milestone 1 — Foundation Infrastructure.
  *
  * A minimal, synchronous publish/subscribe bus. This is a leaf module:
- * it has no dependencies on any other Likhi module and knows nothing
+ * it has no dependencies on any other Aunt module and knows nothing
  * about persistence, state, or the DOM.
  *
  * Loaded as a classic script (not an ES module) so the app continues to
@@ -18,7 +18,7 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
+  var Aunt = global.Aunt = global.Aunt || {};
 
   function EventBus() {
     this._handlers = {};
@@ -79,7 +79,7 @@
 
   // Single shared instance used across the app, consistent with the
   // rest of Milestone 1's modules (Persistence, Store) also being
-  // shared singletons attached to the Likhi namespace.
-  Likhi.EventBus = new EventBus();
+  // shared singletons attached to the Aunt namespace.
+  Aunt.EventBus = new EventBus();
 
 })(window);
