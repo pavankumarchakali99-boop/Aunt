@@ -31,15 +31,15 @@
  * In-memory only, capped ring buffer — this is a debugging aid for
  * the current session, not a durable audit log.
  *
- * Depends on Likhi.EventBus (Milestone 1) only.
+ * Depends on Aunt.EventBus (Milestone 1) only.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var EventBus = Likhi.EventBus;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var EventBus = Aunt.EventBus;
   if (!EventBus) {
-    throw new Error('[Observability] Likhi.EventBus must be loaded before observability.js');
+    throw new Error('[Observability] Aunt.EventBus must be loaded before observability.js');
   }
 
   var MAX_LOG_ENTRIES = 200;
@@ -113,6 +113,6 @@
     }
   };
 
-  Likhi.Observability = Observability;
+  Aunt.Observability = Observability;
 
 })(window);
