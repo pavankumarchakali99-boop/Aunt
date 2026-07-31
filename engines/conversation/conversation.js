@@ -27,7 +27,7 @@
  * threadId "default" for all recorded message history, with an
  * explicit note that Conversation Engine (this file) MUST reuse that
  * exact id for the first real thread. It does: see the
- * `createThread('default', ['likhi'])` call at the bottom of this
+ * `createThread('default', ['Aunt'])` call at the bottom of this
  * file. This closes that hand-off.
  * ─────────────────────────────────────────────────────────────────
  *
@@ -38,12 +38,12 @@
  * decision). Revisit if a future milestone needs thread state to
  * survive a reload independent of re-running the seed.
  *
- * No dependencies on any other Likhi.* module.
+ * No dependencies on any other Aunt.* module.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
+  var Aunt = global.Aunt = global.Aunt || {};
 
   var threads = {};
 
@@ -203,15 +203,15 @@ clearTranscript: function (threadId) {
     }
   };
 
-  Likhi.Engines = Likhi.Engines || {};
-  Likhi.Engines.Conversation = ConversationEngine;
+  Aunt.Engines = Aunt.Engines || {};
+  Aunt.Engines.Conversation = ConversationEngine;
 
   /* Seed the single default thread for the current single-character,
      single-conversation scope. The id "default" and the participant
-     id "likhi" MUST match Memory Engine's and Character Engine's
+     id "Aunt" MUST match Memory Engine's and Character Engine's
      already-established placeholder ids exactly. Unchanged from
      Milestone 4 — this thread's behavior must stay identical. */
-  ConversationEngine.createThread('default', ['likhi']);
+  ConversationEngine.createThread('default', ['Aunt']);
 
   /* Milestone 5 — a second, non-default thread proving genuine
      multi-participant support: three characters sharing one
@@ -222,7 +222,7 @@ clearTranscript: function (threadId) {
      presence-awareness can be exercised and verified end-to-end
      against a real multi-party thread. See engines/character/maya.js
      and engines/character/nova.js for the two additional characters. */
-  ConversationEngine.createThread('living-room', ['likhi', 'aarav', 'ananya']);
+  ConversationEngine.createThread('living-room', ['Aunt', 'aarav', 'ananya']);
 
 })(window);
 
