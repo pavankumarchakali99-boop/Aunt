@@ -9,7 +9,7 @@
  * instead of branching on them directly.
  *
  * IMPORTANT (backward compatibility): the provider id strings used
- * here are the SAME strings already stored under the `Likhi_provider`
+ * here are the SAME strings already stored under the `Aunt_provider`
  * localStorage key by Milestone 1's Store. They must never change,
  * or existing users' saved provider selection would silently stop
  * resolving to an adapter.
@@ -30,15 +30,15 @@
  *     em-dash cleanup), or throws an Error whose message matches the
  *     provider's existing error-extraction behavior.
  *
- * Depends on nothing else in Likhi.* — this file only needs to load
+ * Depends on nothing else in Aunt.* — this file only needs to load
  * before the adapters that call `register()` and before the app
  * script that calls `send()`.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  Likhi.Providers = Likhi.Providers || {};
+  var Aunt = global.Aunt = global.Aunt || {};
+  Aunt.Providers = Aunt.Providers || {};
 
   var registry = {};
 
@@ -86,6 +86,6 @@
     }
   };
 
-  Likhi.Providers.Chat = ChatProviders;
+  Aunt.Providers.Chat = ChatProviders;
 
 })(window);
