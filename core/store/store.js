@@ -5,7 +5,7 @@
  *
  * Replaces the original app's bare `S` object and `loadState()`
  * function with a dispatch/subscribe Store. Depends on both
- * Likhi.Persistence (load/save) and Likhi.EventBus (change
+ * Aunt.Persistence (load/save) and Aunt.EventBus (change
  * notification) — this is the only Milestone 1 module with real
  * dependencies, which is why it must be the last of the three
  * <script> tags to load.
@@ -41,13 +41,13 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var Persistence = Likhi.Persistence;
-  var EventBus = Likhi.EventBus;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var Persistence = Aunt.Persistence;
+  var EventBus = Aunt.EventBus;
 
   if (!Persistence || !EventBus) {
     throw new Error(
-      '[Store] Likhi.Persistence and Likhi.EventBus must be loaded before store.js. ' +
+      '[Store] Aunt.Persistence and Aunt.EventBus must be loaded before store.js. ' +
       'Check <script> tag order: event-bus.js, persistence.js, then store.js.'
     );
   }
@@ -66,13 +66,13 @@
    * removed in Milestone 2 — see the file header comment.)
    */
   var FIELD_MAP = {
-    userName:     { storageKey: 'Likhi_user_name',   kind: 'raw' },
-    provider:     { storageKey: 'Likhi_provider',    kind: 'raw' },
-    apiKey:       { storageKey: 'Likhi_api_key',     kind: 'raw' },
-    imageApiKey:  { storageKey: 'Likhi_img_key',     kind: 'raw' },
-    imageApiUrl:  { storageKey: 'Likhi_img_url',     kind: 'raw' },
-    memory:       { storageKey: 'Likhi_memory',      kind: 'raw' },
-    darkMode:     { storageKey: 'Likhi_dark',        kind: 'raw' },
+    userName:     { storageKey: 'Aunt_user_name',   kind: 'raw' },
+    provider:     { storageKey: 'Aunt_provider',    kind: 'raw' },
+    apiKey:       { storageKey: 'Aunt_api_key',     kind: 'raw' },
+    imageApiKey:  { storageKey: 'Aunt_img_key',     kind: 'raw' },
+    imageApiUrl:  { storageKey: 'Aunt_img_url',     kind: 'raw' },
+    memory:       { storageKey: 'Aunt_memory',      kind: 'raw' },
+    darkMode:     { storageKey: 'Aunt_dark',        kind: 'raw' },
     awaitingName: { storageKey: null,                kind: 'transient' }
   };
 
@@ -158,6 +158,6 @@
     }
   };
 
-  Likhi.Store = Store;
+  Aunt.Store = Store;
 
 })(window);
