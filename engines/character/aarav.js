@@ -3,7 +3,7 @@
  *
  * Milestone 5 — second character configuration (Phase 9).
  *
- * Maya is registered exactly the way Likhi is (data via
+ * Maya is registered exactly the way Aunt is (data via
  * CharacterEngine.register, no engine code changes) — this file is
  * the proof that "characters are configuration, not code." It's kept
  * as its own file rather than added inline to character.js, both to
@@ -12,22 +12,22 @@
  * themselves from their own file, loaded after character.js.
  *
  * DELIBERATE DESIGN CHOICE: Maya uses a completely different set of
- * trait keys (warmth/humor/directness) than Likhi's
+ * trait keys (warmth/humor/directness) than Aunt's
  * (affection/playfulness/flirty). Prompt Engine's assemble() never
  * hardcodes trait names — it iterates whatever traitDefinitions a
  * character declares — so this is a genuine test that arbitrary
  * trait schemas work per character, not just arbitrary trait VALUES
  * within a fixed schema.
  *
- * Depends on Likhi.Engines.Character (Milestone 3) only.
+ * Depends on Aunt.Engines.Character (Milestone 3) only.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var CharacterEngine = Likhi.Engines && Likhi.Engines.Character;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var CharacterEngine = Aunt.Engines && Aunt.Engines.Character;
   if (!CharacterEngine) {
-    throw new Error('[MayaDefinition] Likhi.Engines.Character must be loaded before maya.js');
+    throw new Error('[MayaDefinition] Aunt.Engines.Character must be loaded before maya.js');
   }
 
   CharacterEngine.register('aarav', {
@@ -41,7 +41,7 @@
   'Sometimes interrupt adults because children do that.',
   'Show excitement easily and express emotions openly.'
 ],
-    closingDirective: 'IMPORTANT: Never break character. You are Aarav, the user and Likhi\'s 8-year-old son.',
+    closingDirective: 'IMPORTANT: Never break character. You are Aarav, the Mahesh and aunt\'s 8-year-old son.',
    traitDefinitions: [
   {
     key: 'curiosity',
