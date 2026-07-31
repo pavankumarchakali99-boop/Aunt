@@ -865,13 +865,13 @@ html.dark #toast { background: #1e293b; }
      Character Engine only depends on Persistence (already loaded
      above). World Engine has no dependencies at all. Prompt Engine
      depends on Character Engine, so it must load after it.
-     aarav.js and ananya.js (Milestone 5) are character DATA files that
+     aarav.js and Mahesh.js (Milestone 5) are character DATA files that
      register against Character Engine, same pattern as the chat/media
      provider adapters registering against their interfaces — they
      must load after character.js, and before nothing in particular. -->
 <script src="engines/character/character.js"></script>
 <script src="engines/character/aarav.js"></script>
-<script src="engines/character/ananya.js"></script>
+<script src="engines/character/Mahesh.js"></script>
 <script src="engines/world/world.js"></script>
   <script src="engines/parser/response-parser.js"></script>
 <script src="engines/prompt/prompt.js"></script>
@@ -1280,7 +1280,7 @@ var WorldEngine    = window.Aunt && window.Aunt.Engines && window.Aunt.Engines.W
    * chat UI actually shows — this is essential, not optional: Memory
    * Engine's record() is also called by the Scheduler (Milestone 6)
    * for autonomous turns in the 'living-room' thread, and without
-   * this filter aarav/ananya's autonomous chatter would leak into this
+   * this filter aarav/Mahesh's autonomous chatter would leak into this
    * single-character chat window, which has no UI for them.
    */
   window.Aunt.EventBus.subscribe('memory:recorded', function (evt) {
