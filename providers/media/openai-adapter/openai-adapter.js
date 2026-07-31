@@ -12,10 +12,10 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var MediaProviders = Likhi.Providers && Likhi.Providers.Media;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var MediaProviders = Aunt.Providers && Aunt.Providers.Media;
   if (!MediaProviders) {
-    throw new Error('[OpenAIAdapter] Likhi.Providers.Media must be loaded before openai-adapter.js');
+    throw new Error('[OpenAIAdapter] Aunt.Providers.Media must be loaded before openai-adapter.js');
   }
 
   MediaProviders.registerShape({
