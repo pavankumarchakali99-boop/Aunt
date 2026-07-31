@@ -19,7 +19,7 @@
  * deferred until a future milestone actually needs it.
  *
  * MILESTONE 8 UPDATE — PERSISTENCE: each world is now persisted under
- * its own namespaced key (`Likhi_world:<worldId>`) via the existing,
+ * its own namespaced key (`Aunt_world:<worldId>`) via the existing,
  * unmodified Persistence Engine — Persistence Engine needed NO
  * interface change for this, since it was always a generic key/value
  * wrapper; World Engine is simply a new consumer of it, the same way
@@ -29,7 +29,7 @@
  *
  * BACKWARD COMPATIBILITY: no prior milestone ever persisted World
  * Engine data, so there is no legacy key to migrate from. An existing
- * user's first load under this milestone finds no `Likhi_world:*` key,
+ * user's first load under this milestone finds no `Aunt_world:*` key,
  * falls back to the same hardcoded seed as every prior milestone, and
  * behaves identically — persistence only affects what happens to
  * state changes made AFTER that (including the seed itself, so a
@@ -37,22 +37,22 @@
  * which is behaviorally identical either way since the seed is
  * idempotent).
  *
- * Depends on Likhi.Persistence (Milestone 1) — new dependency this
+ * Depends on Aunt.Persistence (Milestone 1) — new dependency this
  * milestone.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var Persistence = Likhi.Persistence;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var Persistence = Aunt.Persistence;
   if (!Persistence) {
-    throw new Error('[WorldEngine] Likhi.Persistence must be loaded before world.js');
+    throw new Error('[WorldEngine] Aunt.Persistence must be loaded before world.js');
   }
 
   var worlds = {};
 
   function storageKey(worldId) {
-    return 'Likhi_world:' + worldId;
+    return 'Aunt_world:' + worldId;
   }
 
   function persistWorld(worldId) {
@@ -350,14 +350,14 @@ setGoal: function (worldId, characterId, goals) {
     }
   };
 
-  Likhi.Engines = Likhi.Engines || {};
-  Likhi.Engines.World = WorldEngine;
+  Aunt.Engines = Aunt.Engines || {};
+  Aunt.Engines.World = WorldEngine;
 
   /* MILESTONE 8 FIX: the seed below must only run on the very first
      load. Running it unconditionally on every load (as it did before
      persistence existed, when it was harmlessly idempotent) would now
      silently overwrite any later runtime mutation to a seeded field
-     — e.g. if something ever moves Likhi to a new location, the next
+     — e.g. if something ever moves Aunt to a new location, the next
      reload would snap her back to 'default-location', clobbering
      real state with stale seed data. Checking for an existing
      persisted key first (the same "has this ever run before" check
@@ -370,7 +370,7 @@ setGoal: function (worldId, characterId, goals) {
        support (Milestone 5). */
     WorldEngine.createWorld('default-world');
     WorldEngine.addLocation('default-world', 'default-location', { name: 'Default Location' });
-    WorldEngine.setPresence('default-world', 'likhi', 'default-location');
+    WorldEngine.setPresence('default-world', 'Aunt', 'default-location');
     WorldEngine.addLocation('default-world', 'cafe', { name: 'The Corner Cafe' });
     WorldEngine.setPresence('default-world', 'aarav', 'cafe');
     WorldEngine.setPresence('default-world', 'ananya', 'cafe');
