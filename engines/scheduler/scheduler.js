@@ -6,7 +6,7 @@
  * Drives autonomous action: decides WHEN a character should act
  * without user input, and hands off to the Orchestrator to decide
  * WHAT happens — the Scheduler itself never builds a prompt, calls a
- * provider, or knows anything about character personas. This mirrors
+ * provider, or knows anything about character personas. This mirrorsf
  * how the UI layer already calls the Orchestrator for human-driven
  * turns; the Scheduler is simply another caller.
  *
@@ -21,7 +21,7 @@
  * and verified end-to-end (see the Milestone 6 test suite), without
  * risking an unsuspecting user incurring real API costs just by
  * opening the page. Enabling real autonomy today requires an
- * explicit, deliberate call to `Likhi.Engines.Scheduler.start()`
+ * explicit, deliberate call to `Aunt.Engines.Scheduler.start()`
  * (e.g. from the browser console) — there is no UI toggle for this
  * yet (see the Milestone 6 report's "remaining work" section).
  * ─────────────────────────────────────────────────────────────────
@@ -85,12 +85,12 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var ConversationEngine = Likhi.Engines && Likhi.Engines.Conversation;
-  var Orchestrator       = Likhi.Engines && Likhi.Engines.Orchestrator;
-  var MemoryEngine       = Likhi.Engines && Likhi.Engines.Memory;
-  var EventBus           = Likhi.EventBus;
-  var Governance         = Likhi.Governance;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var ConversationEngine = Aunt.Engines && Aunt.Engines.Conversation;
+  var Orchestrator       = Aunt.Engines && Aunt.Engines.Orchestrator;
+  var MemoryEngine       = Aunt.Engines && Aunt.Engines.Memory;
+  var EventBus           = Aunt.EventBus;
+  var Governance         = Aunt.Governance;
 
   if (!ConversationEngine || !Orchestrator || !MemoryEngine || !EventBus || !Governance) {
     throw new Error(
@@ -276,7 +276,7 @@
     }
   };
 
-  Likhi.Engines.Scheduler = SchedulerEngine;
+  Aunt.Engines.Scheduler = SchedulerEngine;
 
   /* A registered, enabled — but never automatically started — demo
      trigger on the 'living-room' thread (see engines/conversation/
