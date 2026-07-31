@@ -222,7 +222,7 @@ clearTranscript: function (threadId) {
      presence-awareness can be exercised and verified end-to-end
      against a real multi-party thread. See engines/character/maya.js
      and engines/character/nova.js for the two additional characters. */
-  ConversationEngine.createThread('living-room', ['Aunt', 'aarav', 'ananya']);
+  ConversationEngine.createThread('living-room', ['Aunt', 'aarav', 'Mahesh']);
 
 })(window);
 
