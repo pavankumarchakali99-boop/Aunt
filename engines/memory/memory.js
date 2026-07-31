@@ -15,20 +15,20 @@
  * do not exist yet. Until they do, every call site in the app uses two
  * literal placeholder ids:
  *
- *     ownerId  = "likhi"     (stands in for the future Character id)
+ *     ownerId  = "Aunt"     (stands in for the future Character id)
  *     threadId = "default"   (stands in for the future Conversation
  *                              thread id)
  *
  * These exact strings are recorded in localStorage as part of the
  * namespaced key (see namespacedKey() below). Milestone 3's Character
- * Engine MUST register its first character under the id "likhi", and
+ * Engine MUST register its first character under the id "Aunt", and
  * Milestone 4's Conversation Engine MUST use "default" as the id of
  * the first migrated thread — otherwise this milestone's recorded
  * history becomes silently unreachable under the ids those engines
  * actually use.
  * ─────────────────────────────────────────────────────────────────
  *
- * Depends on Likhi.Persistence (Milestone 1) and Likhi.EventBus
+ * Depends on Aunt.Persistence (Milestone 1) and Aunt.EventBus
  * (Milestone 1). Does not depend on Store or the app script.
  *
  * MILESTONE 5 UPDATE: record() now publishes a 'memory:recorded'
@@ -53,11 +53,11 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var Persistence = Likhi.Persistence;
-  var EventBus = Likhi.EventBus;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var Persistence = Aunt.Persistence;
+  var EventBus = Aunt.EventBus;
   if (!Persistence || !EventBus) {
-    throw new Error('[MemoryEngine] Likhi.Persistence and Likhi.EventBus must be loaded before memory.js');
+    throw new Error('[MemoryEngine] Aunt.Persistence and Aunt.EventBus must be loaded before memory.js');
   }
 
   var MAX_MESSAGES = 60;
@@ -65,10 +65,10 @@
   // The Milestone 1 flat key. Migrated once, then removed. Left as a
   // named constant (rather than inlined) so its one purpose --
   // one-time legacy migration -- stays obvious at a glance.
-  var LEGACY_MESSAGES_KEY = 'Likhi_messages';
+  var LEGACY_MESSAGES_KEY = 'Aunt_messages';
 
   function namespacedKey(ownerId, threadId) {
-    return 'Likhi_memory:' + ownerId + ':' + threadId + ':messages';
+    return 'Aunt_memory:' + ownerId + ':' + threadId + ':messages';
   }
 
   function cacheKey(ownerId, threadId) {
@@ -221,7 +221,7 @@
     }
   };
 
-  Likhi.Engines = Likhi.Engines || {};
-  Likhi.Engines.Memory = MemoryEngine;
+  Aunt.Engines = Aunt.Engines || {};
+  Aunt.Engines.Memory = MemoryEngine;
 
 })(window);
