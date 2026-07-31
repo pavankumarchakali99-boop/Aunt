@@ -5,7 +5,7 @@
  *
  * A policy guard against runaway autonomous provider calls: a
  * per-character cooldown and a per-session budget cap. This is
- * deliberately a small, standalone module living under /core (like
+ * deliberately a small, standalone module living under /coref (like
  * Event Bus and Persistence) rather than a new domain engine, and
  * deliberately NOT a wrapper around Provider Engine's or the
  * Orchestrator's call path in general.
@@ -34,12 +34,12 @@
  * reset on reload (a fresh page session gets a fresh budget); this is
  * a deliberate characteristic, not an oversight.
  *
- * No dependencies on any other Likhi.* module.
+ * No dependencies on any other Aunt.* module.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
+  var Aunt = global.Aunt = global.Aunt || {};
 
   var DEFAULT_COOLDOWN_MS = 30000;    // 30s per character between autonomous actions
   var DEFAULT_SESSION_BUDGET = 20;    // total autonomous actions allowed per page session
@@ -127,6 +127,6 @@
     }
   };
 
-  Likhi.Governance = Governance;
+  Aunt.Governance = Governance;
 
 })(window);
