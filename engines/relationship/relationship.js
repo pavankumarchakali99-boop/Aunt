@@ -43,7 +43,7 @@
  * Revisit if a future milestone needs relationship state to survive
  * a reload independent of message history.
  *
- * Depends on Likhi.EventBus (Milestone 1) and Likhi.Engines.Conversation
+ * Depends on Aunt.EventBus (Milestone 1) and Aunt.Engines.Conversation
  * (Milestone 4), to look up who else is in a thread when an event
  * arrives. Does NOT depend on Memory Engine, Character Engine, the
  * Orchestrator, or the app script.
@@ -51,12 +51,12 @@
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var EventBus = Likhi.EventBus;
-  var ConversationEngine = Likhi.Engines && Likhi.Engines.Conversation;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var EventBus = Aunt.EventBus;
+  var ConversationEngine = Aunt.Engines && Aunt.Engines.Conversation;
 
   if (!EventBus || !ConversationEngine) {
-    throw new Error('[RelationshipEngine] Likhi.EventBus and Likhi.Engines.Conversation must be loaded before relationship.js');
+    throw new Error('[RelationshipEngine] Aunt.EventBus and Aunt.Engines.Conversation must be loaded before relationship.js');
   }
 
   // key: "fromCharacterId->toCharacterId" -> relationship record
@@ -117,8 +117,8 @@
     }
   };
 
-  Likhi.Engines = Likhi.Engines || {};
-  Likhi.Engines.Relationship = RelationshipEngine;
+  Aunt.Engines = Aunt.Engines || {};
+  Aunt.Engines.Relationship = RelationshipEngine;
 
   /* The only coupling this engine has to the rest of the system. */
   EventBus.subscribe('memory:recorded', function (evt) {
