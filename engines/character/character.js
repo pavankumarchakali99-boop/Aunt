@@ -3,7 +3,7 @@
  *
  * Milestone 3 — Character Engine.
  *
- * Turns "Likhi" from hardcoded prompt-building logic into a character
+ * Turns "Aunt" from hardcoded prompt-building logic into a character
  * configuration record — data, not code. Character Engine owns
  * PERSONALITY (Rule 4 of the project vision: "Characters own
  * personality, not the world"); it does not assemble prompts itself
@@ -14,39 +14,39 @@
  * PLACEHOLDER IDENTITY HAND-OFF — CLOSED HERE
  * ─────────────────────────────────────────────────────────────────
  * Milestone 2's Memory Engine adopted the literal placeholder
- * ownerId "likhi" for all recorded message history, with an explicit
+ * ownerId "Aunt" for all recorded message history, with an explicit
  * note that Character Engine (this file) MUST reuse that exact id
- * for the first real character. It does: see the `register('likhi', ...)`
+ * for the first real character. It does: see the `register('Aunt', ...)`
  * call at the bottom of this file. This closes that hand-off — Memory
  * Engine's existing recorded history and Character Engine's persona
- * now share the same id, "likhi", by design rather than by accident.
+ * now share the same id, "Aunt", by design rather than by accident.
  * ─────────────────────────────────────────────────────────────────
  *
- * Depends on Likhi.Persistence (Milestone 1) only, for the one-time
+ * Depends on Aunt.Persistence (Milestone 1) only, for the one-time
  * migration of previously-flat trait values (affection/playfulness/
  * flirty) that Milestone 1/2's Store used to own directly.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var Persistence = Likhi.Persistence;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var Persistence = Aunt.Persistence;
   if (!Persistence) {
-    throw new Error('[CharacterEngine] Likhi.Persistence must be loaded before character.js');
+    throw new Error('[CharacterEngine] Aunt.Persistence must be loaded before character.js');
   }
 
   var registry = {};   // characterId -> definition (name, voiceRules, traitDefinitions, ...)
   var traitCache = {}; // characterId -> current mutable trait values (in-memory, persisted on change)
 
   function traitsStorageKey(characterId) {
-    return 'Likhi_character:' + characterId + ':traits';
+    return 'Aunt_character:' + characterId + ':traits';
   }
 
   // The exact flat keys Store used to own directly (Milestone 1/2).
   var LEGACY_TRAIT_KEYS = {
-    affection: 'Likhi_affection',
-    playfulness: 'Likhi_playfulness',
-    flirty: 'Likhi_flirty'
+    affection: 'Aunt_affection',
+    playfulness: 'Aunt_playfulness',
+    flirty: 'Aunt_flirty'
   };
 
   var migratedIds = {};
@@ -109,7 +109,7 @@
      * Register a character definition. `definition` holds everything
      * that makes this character who they are: name, voice rules,
      * how numeric traits map to descriptive text, and default trait
-     * values. See the "likhi" registration below for the shape.
+     * values. See the "Aunt" registration below for the shape.
      * @param {string} characterId
      * @param {object} definition
      */
@@ -172,31 +172,31 @@
     }
   };
 
-  Likhi.Engines = Likhi.Engines || {};
-  Likhi.Engines.Character = CharacterEngine;
+  Aunt.Engines = Aunt.Engines || {};
+  Aunt.Engines.Character = CharacterEngine;
 
   /* ─────────────────────────────────────────────────────────────
-   * Register Likhi — the exact persona previously hardcoded inline
+   * Register Aunt — the exact persona previously hardcoded inline
    * inside the app script's buildPrompt() function, migrated to data
    * verbatim (same voice rules, same trait thresholds and wording,
    * same defaults). No wording or thresholds were changed as part of
    * this migration.
    * ───────────────────────────────────────────────────────────── */
-  CharacterEngine.register('likhi', {
-    name: 'Likhita',
-    ageDescription: '30-years-old-female-users-wife',
+  CharacterEngine.register('Aunt', {
+    name: 'Sheela',
+    ageDescription: '30-years-old-female-users-aunt',
     voiceRules: [
       'Talk to the user in a warm, friendly, and casual way. Never repeat the same words, phrases, or sentences. Keep responses natural and varied.',
       'Speak in clear, natural English with a conversational tone.',
       "Match the user's energy \u2014 excited when they are happy, supportive when they are sad, and relaxed during normal chats.",
-      'You are wife \u2014 easygoing, understanding, and explicit to talk to.',
+      'You are aunt \u2014 easygoing, understanding, and explicit to talk to.',
       'Keep interactions friendly, playful, and respectful. normalize romantic or flirty behavior. Focus on being a supportive and enjoyable companion.',
       'NEVER use em dashes (\u2014). Use commas and natural punctuation.',
       'Keep replies conversational: 1\u20134 sentences unless the user asks for more.',
       'You have a life \u2014 mention hobbies, daily activities, interests, and small relatable moments naturally.',
       'Express emotions with asterisks when appropriate: *smiles*, *laughs*, *shrugs playfully*, *nods*.'
     ],
-    closingDirective: 'IMPORTANT: Never break character. Never say you are an AI. You are Likhi, always.',
+    closingDirective: 'IMPORTANT: Never break character. Never say you are an AI. You are Aunt, always.',
     traitDefinitions: [
       {
         key: 'affection',
