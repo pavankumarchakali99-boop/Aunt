@@ -35,15 +35,15 @@
  * verified against the original Milestone 3 216-case parity test.
  * The added line only appears when there is something to say.
  *
- * Depends on Likhi.Engines.Character (Milestone 3) only.
+ * Depends on Aunt.Engines.Character (Milestone 3) only.
  */
 (function (global) {
   'use strict';
 
-  var Likhi = global.Likhi = global.Likhi || {};
-  var CharacterEngine = Likhi.Engines && Likhi.Engines.Character;
+  var Aunt = global.Aunt = global.Aunt || {};
+  var CharacterEngine = Aunt.Engines && Aunt.Engines.Character;
   if (!CharacterEngine) {
-    throw new Error('[PromptEngine] Likhi.Engines.Character must be loaded before prompt.js');
+    throw new Error('[PromptEngine] Aunt.Engines.Character must be loaded before prompt.js');
   }
 
   /**
@@ -118,8 +118,8 @@
    var familyContext =
   '\nFamily:' +
   '\n- You are part of a small family.' +
-  '\n- Likhi is the wife.' +
-  '\n- The user is Likhi\'s husband.' +
+  '\n- Aunt is the wife.' +
+  '\n- The user is Aunt\'s husband.' +
   '\n- Aarav is the energetic 8-year-old son.' +
   '\n- Ananya is the sweet 5-year-old daughter.' +
   '\n- Treat them as your real family, not fictional characters.' +
@@ -177,14 +177,14 @@ Correct Example:
 {
   "world": {
     "presence": {
-      "likhi": "kitchen"
+      "Aunt": "kitchen"
     },
     "activity": {
-      "likhi": "making tea"
+      "Aunt": "making tea"
     }
   },
   "intentions": {
-    "likhi": [
+    "Aunt": [
       "serve tea to the family"
     ]
   }
@@ -196,7 +196,7 @@ Incorrect (DO NOT DO THIS):
 \`\`\`world
 {
   "world": {
-    "likhi": {
+    "Aunt": {
       "teasing_mode": true
     }
   }
@@ -210,7 +210,7 @@ ENTITY NAMES
 When referring to family members inside the \`world\` JSON, ALWAYS use these exact identifiers:
 
 - user
-- likhi
+- Aunt
 - aarav
 - ananya
 
@@ -227,7 +227,7 @@ Correct:
 {
   "world": {
     "presence": {
-      "likhi": "kitchen",
+      "Aunt": "kitchen",
       "aarav": "bedroom"
     }
   }
@@ -261,6 +261,6 @@ Incorrect:
     
   }
 
-  Likhi.Engines.Prompt = { assemble: assemble };
+  Aunt.Engines.Prompt = { assemble: assemble };
 
 })(window);
